@@ -8,7 +8,6 @@ transport = 0
 fitness = 0
 children = 0
 
-
 def get_user_input
     puts "What is your weekly income after tax?"
     income = gets.chomp.to_i
@@ -33,7 +32,13 @@ def get_user_input
   def subtract
     income, rent, groceries, insurance, recreation, utilities, transport, fitness, children = get_user_input()
     result = income - rent - groceries - insurance - recreation - utilities - transport - fitness - children
-    puts result
+    puts "You have $#{result} remaining for savings!
+    Did you know about the 50/20/30 Rule of Budgeting?
+    50% of your income is allocated for Needs,
+    20% of your income is allocated for savings, and
+    30% of your income is for Wants!
+    Stick to this rule and you'll be considered a
+    good little Aussie Saver!"
   end
   quit = false
   until quit do
@@ -46,8 +51,37 @@ def get_user_input
     when "yes"
       subtract()
       result = income - rent - groceries - insurance - recreation - utilities - transport - fitness - children
-      puts result
     when "q"
       quit = true
     end
   end
+
+# class Plant
+#   def initialize(name)
+#     @name = name
+#     @hunger = 50
+#   end
+#   def feed
+#     @hunger -= 15
+#     if @hunger < 0
+#       @hunger = 0
+#     end
+#   end
+# end
+
+# fern = Plant.new("Larry")
+
+# loop do
+#   puts "Welcome to .budgt, where none of your dreams come true!
+#   Were here to help you see where all your money is going every week!
+#   If you want to keep going down this rabbit hole of debt and sorrow 
+#   type 'yes', if not, type 'quit'!"
+#   user_input = gets.chomp
+#   case user_input
+#   when "yes"
+#     fern.feed()
+#     puts "continue"
+#   else
+#     puts "that doesn't work"
+#   end
+# end
