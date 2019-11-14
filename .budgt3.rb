@@ -10,23 +10,23 @@ children = 0
 
 def get_user_input
     puts "What is your weekly income after tax?"
-    income = gets.chomp.to_i
+    income = gets.chomp.to_f
     puts "What is your weekly rent or morgage repayments?"
-    rent = gets.chomp.to_i
+    rent = gets.chomp.to_f
     puts "How much do you spend on groceries each week??"
-    groceries = gets.chomp.to_i
+    groceries = gets.chomp.to_f
     puts "How much do you spend on insurance??"
-    insurance = gets.chomp.to_i
+    insurance = gets.chomp.to_f
     puts "How much do you spend on recreation??"
-    recreation = gets.chomp.to_i
+    recreation = gets.chomp.to_f
     puts "How much do you spend on utilities each week??"
-    utilities = gets.chomp.to_i
+    utilities = gets.chomp.to_f
     puts "How much do you spend on transport each week??"
-    transport = gets.chomp.to_i
+    transport = gets.chomp.to_f
     puts "How much do you spend on fitness each week??"
-    fitness = gets.chomp.to_i
+    fitness = gets.chomp.to_f
     puts "How much do you spend on children each week??"
-    children = gets.chomp.to_i
+    children = gets.chomp.to_f
     return income, rent, groceries, insurance, recreation, utilities, transport, fitness, children
   end
   def subtract
