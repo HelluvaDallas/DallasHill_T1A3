@@ -35,7 +35,15 @@ def subtract
   puts "You are currently saving #{((result / income) * 100).truncate(2)}% of your income,
   which leaves $#{result} for savings!"
   
-  if ((result / income) * 100).truncate(2) < 20
+if ((result / income) * 100).truncate(2) <= 0
+  puts "Looks like you arent saving anything. You might even be spending more than you earn!
+  Have you heard about the 50/20/30 Rule of Budgeting?
+50% of your income is allocated for Needs,
+20% of your income is allocated for savings, and
+30% of your income is for Wants!
+Stick to this rule and you'll be considered a
+good little Aussie Saver!"
+elsif ((result / income) * 100).truncate(2) < 20
     puts "You're currently saving less than 20% of your weekly income.
     Have you heard about the 50/20/30 Rule of Budgeting?
   50% of your income is allocated for Needs,
