@@ -35,7 +35,7 @@ def subtract
   puts "You are currently saving #{((result / income) * 100).truncate(2)}% of your income,
   which leaves $#{result} for savings!"
   
-  if ((result / income) * 100).truncate(2) > 0 + < 19
+  if ((result / income) * 100).truncate(2) < 20
     puts "You're currently saving less than 20% of your weekly income.
     Have you heard about the 50/20/30 Rule of Budgeting?
   50% of your income is allocated for Needs,
@@ -43,36 +43,13 @@ def subtract
   30% of your income is for Wants!
   Stick to this rule and you'll be considered a
   good little Aussie Saver!"
-
-elsif ((result / income) * 100).truncate(2)  > 0 + < 9
-  puts "you are saving 10% or less of your weekly income"
-elsif ((result / income) * 100).truncate(2) > 10 + < 19
-  puts "you are saving 10-19% of your weekly income, you're so close to
-  hitting the recommended target of 20% savings!"
   elsif ((result / income) * 100).truncate(2) == 20
     puts "you are saving 20% of your weekly income, seems like you're right on track!"
-  elsif ((result / income) * 100).truncate(2) > 20 + < 29
-    puts "you are saving 20-30% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 30 + < 39
-    puts "you are saving 30-40% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 40 + < 49
-    puts "you are saving 40-50% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 50 + < 59
-    puts "you are saving 50-60% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 60 + < 69
-    puts "you are saving 60-70% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 70 + < 79
-    puts "you are saving 70-80% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 80 + < 89
-    puts "you are saving 80-90% of your weekly income!"
-  elsif ((result / income) * 100).truncate(2) > 90 + < 100
-    puts "you are saving 90-100% of your weekly income!"
-  elsif #((result / income) * 100).truncate(2) <= 0
-    puts "Looks like you're over spending, You need seriously rethink your expenditures!"
+  else
+    puts "Looks like you're saving more than 20% of your weekly income! You're crushing it, keep up the good work!"
   end
 end
 quit = false
-# until quit do
   puts "Welcome to .budgt, where none of your dreams come true!
   We're here to help you see where all your money is going every week!
   If you want to keep going down this rabbit hole of debt and sorrow 
@@ -85,4 +62,3 @@ quit = false
     when "q"
       quit = true
     end
-  # end
