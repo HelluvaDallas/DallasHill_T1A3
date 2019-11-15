@@ -1,12 +1,17 @@
-income = 0
-rent = 0
-groceries = 0
-insurance = 0
-recreation = 0
-utilities = 0
-transport = 0
-fitness = 0
-children = 0
+class Values
+attr_accessor :income, :rent, :groceries, :insurance, :recreation,
+:utilities, :transport, :fitness, :children
+def initialize ()
+@income = 0
+@rent = 0
+@groceries = 0
+@insurance = 0
+@recreation = 0
+@utilities = 0
+@transport = 0
+@fitness = 0
+@children = 0
+end
 
 def get_user_input
   puts "What is your weekly income after tax?"
@@ -58,15 +63,17 @@ elsif ((result / income) * 100).truncate(2) < 20
   end
 end
 quit = false
+until quit do
   puts "Welcome to .budgt, where none of your dreams come true!
   We're here to help you see where all your money is going every week!
   If you want to keep going down this rabbit hole of debt and sorrow 
-  type 'yes', if not, type 'quit'!"
+  type 'yes', if not, type 'q'!"
   user_input = gets.chomp
-    case user_input
-    when "yes"
-      subtract()
-      result = income - rent - groceries - insurance - recreation - utilities - transport - fitness - children
-    when "q"
-      quit = true
-    end
+  case user_input
+  when "yes"
+    subtract()
+    result = income - rent - groceries - insurance - recreation - utilities - transport - fitness - children
+  when "q"
+    quit = true
+  end
+end
