@@ -14,6 +14,7 @@
 #   end
 # end
 require "colorize"
+# font = TTY::Font.new(:big_words)
 
 def get_user_input
   puts "
@@ -97,12 +98,12 @@ end
 quit = false
 until quit do
   puts "
-  Welcome to Budgt, where the missing 'e' isn't a spelling error!
-  We're here to help you see where all your money is going every week!
-
-  If you want to keep going down this rabbit hole of debt and sorrow
-  type 'y' followed by enter, if not, type 'q' followed by enter!
-  ".colorize(:green)
+    Welcome to Budgt, where the missing 'e' isn't a spelling error!
+    We're here to help you see where all your money is going every week!
+  
+    If you want to keep going down this rabbit hole of debt and sorrow
+    type 'y' followed by enter, if not, type 'q' followed by enter!
+    ".colorize(:green)
   user_input = gets.chomp
     case user_input
     when "y"
