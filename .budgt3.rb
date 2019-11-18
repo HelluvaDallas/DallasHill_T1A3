@@ -19,9 +19,15 @@ require "tty-font"
 font = TTY::Font.new(:doom)
 
 def get_user_input
-  puts "
-  What is your weekly income after tax? Please enter a number.".colorize(:light_blue)
-  income = gets.chomp.to_f
+  begin
+  
+    puts "
+    What is your weekly income after tax? Please enter a number.".colorize(:light_blue)
+    income = gets.chomp.to_f
+  rescue
+    puts "please use numbers, not letters"
+    
+end
   puts "
   What is your weekly rent or morgage repayments? Please enter a number.".colorize(:light_blue)
   rent = gets.chomp.to_f
@@ -133,30 +139,30 @@ def subtract(income, rent, groceries, insurance, recreation, utilities, transpor
     You're exceeding the recommended amount. Keep up the good work!
     
     You're already crushing it, but let's have another go and see if we can save even more!".colorize(:light_green)
-    income = ((result / income) * 100).truncate(2) >= 20
-    rent = ((income / rent) * 100).truncate(2)
-    groceries = ((income / groceries ) * 100).truncate(2)
-    insurance = ((income / insurance) * 100).truncate(2)
-    recreation = ((income / recreation) * 100).truncate(2)
-    utilities = ((income / utilities) * 100).truncate(2)
-    transport = ((income / transport) * 100).truncate(2)
-    fitness = ((income / fitness) * 100).truncate(2)
-    children = ((income / children) * 100).truncate(2)
+    # income = ((result / income) * 100).truncate(2) >= 20
+    # rent = ((income / rent) * 100).truncate(2)
+    # groceries = ((income / groceries ) * 100).truncate(2)
+    # insurance = ((income / insurance) * 100).truncate(2)
+    # recreation = ((income / recreation) * 100).truncate(2)
+    # utilities = ((income / utilities) * 100).truncate(2)
+    # transport = ((income / transport) * 100).truncate(2)
+    # fitness = ((income / fitness) * 100).truncate(2)
+    # children = ((income / children) * 100).truncate(2)
     
-    data = [
-      { name: 'RENT', value: ((income / rent) * 100).truncate(2), color: :bright_blue, fill: 'R' },
-      { name: 'GROCERIES', value: ((income / groceries) * 100).truncate(2), color: :bright_green, fill: 'G' },
-      { name: 'INSURANCE', value: ((income / insurance) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
-      { name: 'RECREATION', value: ((income / recreation) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
-      { name: 'UTILITIES', value: ((income / utilities) * 100).truncate(2), color: :bright_red, fill: 'U' },
-      { name: 'TRANSPORT', value: ((income / transport) * 100).truncate(2), color: :green, fill: 'T' },
-      { name: 'FITNESS', value: ((income / fitness) * 100).truncate(2), color: :cyan, fill: 'F' },
-      { name: 'CHILDREN', value: ((income / children) * 100).truncate(2), color: :magenta, fill: 'C' }
-    ]
+    # data = [
+    #   { name: 'RENT', value: ((income / rent) * 100).truncate(2), color: :bright_blue, fill: 'R' },
+    #   { name: 'GROCERIES', value: ((income / groceries) * 100).truncate(2), color: :bright_green, fill: 'G' },
+    #   { name: 'INSURANCE', value: ((income / insurance) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
+    #   { name: 'RECREATION', value: ((income / recreation) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
+    #   { name: 'UTILITIES', value: ((income / utilities) * 100).truncate(2), color: :bright_red, fill: 'U' },
+    #   { name: 'TRANSPORT', value: ((income / transport) * 100).truncate(2), color: :green, fill: 'T' },
+    #   { name: 'FITNESS', value: ((income / fitness) * 100).truncate(2), color: :cyan, fill: 'F' },
+    #   { name: 'CHILDREN', value: ((income / children) * 100).truncate(2), color: :magenta, fill: 'C' }
+    # ]
     
-    pie_chart = TTY::Pie.new(data: data, radius: 10)
+    # pie_chart = TTY::Pie.new(data: data, radius: 10)
     
-    print pie_chart
+    # print pie_chart
   end
 end
 
