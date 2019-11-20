@@ -1,33 +1,15 @@
-# class Budget
-#   attr_accessor :income, :rent, :groceries, :insurance, :recreation,
-#   :utilities, :transport, :fitness, :children,
-#   def initialize()
-#   @income = 0
-#   @rent = 0
-#   @groceries = 0
-#   @insurance = 0
-#   @recreation = 0
-#   @utilities = 0
-#   @transport = 0
-#   @fitness = 0
-#   @children = 0
-#   end
-# end
 require "colorize"
 require "tty-font"
-# require "tty-pie"
 font = TTY::Font.new(:doom)
 
+# defining the prompts for user input to gain knowledge on weekly income and weekly deductions
 def get_user_input
-  begin
-  
-    puts "
-    What is your weekly income after tax? Please enter a number.".colorize(:light_blue)
-    income = gets.chomp.to_f
-  rescue
-    puts "please use numbers, not letters"
-    
-end
+  puts "
+  What is your weekly income after tax?
+  This can be pay from a job or even rent
+  from a rental property you own
+  Please enter a number.".colorize(:light_blue)
+  income = gets.chomp.to_f
   puts "
   What is your weekly rent or morgage repayments? Please enter a number.".colorize(:light_blue)
   rent = gets.chomp.to_f
@@ -35,33 +17,58 @@ end
   How much do you spend on groceries each week? Please enter a number.".colorize(:light_blue)
   groceries = gets.chomp.to_f
   puts "
-  How much do you spend on insurance? Please enter a number.".colorize(:light_blue)
+  How much do you spend on insurance?
+  Such as health insurance or pet 
+  insurance.
+  Please enter a number.".colorize(:light_blue)
   insurance = gets.chomp.to_f
   puts "
-  How much do you spend on recreation? Please enter a number.".colorize(:light_blue)
+  How much do you spend on recreation weekly?
+  This can include going to the movies,
+  having beers, getting a coffee in the
+  morning and also subscriptions such as
+  Netflix, Stan or Amazon Prime.
+  Please enter a number.".colorize(:light_blue)
   recreation = gets.chomp.to_f
   puts "
-  How much do you spend on utilities each week? Please enter a number.".colorize(:light_blue)
+  How much do you spend on utilities each week?
+  utilities include Gas and Electricity, internet and
+  phone bills.
+  Please enter a number.".colorize(:light_blue)
   utilities = gets.chomp.to_f
   puts "
-  How much do you spend on transport each week? Please enter a number.".colorize(:light_blue)
+  How much do you spend on transport each week?
+  some examples are public transport fees or
+  petrol for the car.
+  Please enter a number.".colorize(:light_blue)
   transport = gets.chomp.to_f
   puts "
-  How much do you spend on fitness each week? Please enter a number.".colorize(:light_blue)
+  How much do you spend on fitness each week?
+  This refers to gym memberships or even the
+  purchase of protein powder and shakes.
+  Please enter a number.".colorize(:light_blue)
   fitness = gets.chomp.to_f
   puts "
-  How much do you spend on children each week? Please enter a number.".colorize(:light_blue)
+  How much do you spend on your children each week?
+  Most of your childrens expenses will be included in
+  the other categories, but this section is for extras.
+  Such as, excursion fees.
+  Please enter a number.".colorize(:light_blue)
   children = gets.chomp.to_f
   return income, rent, groceries, insurance, recreation, utilities, transport, fitness, children
 end
 
+# defining values
 def subtract(income, rent, groceries, insurance, recreation, utilities, transport, fitness, children)
   
+  # result equals income minus all other deductions
   result = income - rent - groceries - insurance - recreation - utilities - transport - fitness - children
   puts "
   You are currently saving #{((result / income) * 100).truncate(2)}% of your income,
   which leaves $#{result} for savings!".colorize(:light_cyan)
   
+  # if income minus all other deductions leaves less than 0% advise of this option
+  # truncate(2) forces percentage float to only show up to two decimal places
   if ((result / income) * 100).truncate(2) <= 0
     puts "
     Oh no. Looks like you arent saving anything...
@@ -74,20 +81,9 @@ def subtract(income, rent, groceries, insurance, recreation, utilities, transpor
     
     You need to re-evaluate where your moeny is going and thats why we're here!
     Let's have another go and see if we improve some things".colorize(:light_red)
-    # data = [
-    #   { name: 'RENT', value: ((result / income) * 100).truncate(2), color: :bright_blue, fill: 'R' },
-    #   { name: 'GROCERIES', value: ((result / income) * 100).truncate(2), color: :bright_green, fill: 'G' },
-    #   { name: 'INSURANCE', value: ((result / income) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
-    #   { name: 'RECREATION', value: ((result / income) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
-    #   { name: 'UTILITIES', value: ((result / income) * 100).truncate(2), color: :bright_red, fill: 'U' },
-    #   { name: 'TRANSPORT', value: ((result / income) * 100).truncate(2), color: :green, fill: 'T' },
-    #   { name: 'FITNESS', value: ((result / income) * 100).truncate(2), color: :cyan, fill: 'F' },
-    #   { name: 'CHILDREN', value: ((result / income) * 100).truncate(2), color: :magenta, fill: 'C' }
-    # ]
-    
-    # pie_chart = TTY::Pie.new(data: data, radius: 10)
-  
-    # print pie_chart
+
+  # if income minus all other deductions leaves less than 20% advise of this option
+  # truncate(2) forces percentage float to only show up to two decimal places
   elsif ((result / income) * 100).truncate(2) < 20
     puts "
     Saving less than 20% of your weekly income is not ideal,
@@ -99,73 +95,27 @@ def subtract(income, rent, groceries, insurance, recreation, utilities, transpor
     30% of your income is for Wants!
     
     Maybe re-evaluate your Wants and try again".colorize(:light_yellow)
-    # data = [
-    #   { name: 'RENT', value: ((result / income) * 100).truncate(2), color: :bright_blue, fill: 'R' },
-    #   { name: 'GROCERIES', value: ((result / income) * 100).truncate(2), color: :bright_green, fill: 'G' },
-    #   { name: 'INSURANCE', value: ((result / income) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
-    #   { name: 'RECREATION', value: ((result / income) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
-    #   { name: 'UTILITIES', value: ((result / income) * 100).truncate(2), color: :bright_red, fill: 'U' },
-    #   { name: 'TRANSPORT', value: ((result / income) * 100).truncate(2), color: :green, fill: 'T' },
-    #   { name: 'FITNESS', value: ((result / income) * 100).truncate(2), color: :cyan, fill: 'F' },
-    #   { name: 'CHILDREN', value: ((result / income) * 100).truncate(2), color: :magenta, fill: 'C' }
-    # ]
-    
-    # pie_chart = TTY::Pie.new(data: data, radius: 10)
-    
-    # print pie_chart
+
+  # if income minus all other deductions equals 20% advise of this option
+  # truncate(2) forces percentage float to only show up to two decimal places
   elsif ((result / income) * 100).truncate(2) == 20
     puts "
     20% of your weekly income is perfect!
     Its the recommmended amount of income to put away each week!
     
     Let's go again to see if we can save even more money!".colorize(:light_green)
-    # data = [
-    #   { name: 'RENT', value: ((result / income) * 100).truncate(2), color: :bright_blue, fill: 'R' },
-    #   { name: 'GROCERIES', value: ((result / income) * 100).truncate(2), color: :bright_green, fill: 'G' },
-    #   { name: 'INSURANCE', value: ((result / income) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
-    #   { name: 'RECREATION', value: ((result / income) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
-    #   { name: 'UTILITIES', value: ((result / income) * 100).truncate(2), color: :bright_red, fill: 'U' },
-    #   { name: 'TRANSPORT', value: ((result / income) * 100).truncate(2), color: :green, fill: 'T' },
-    #   { name: 'FITNESS', value: ((result / income) * 100).truncate(2), color: :cyan, fill: 'F' },
-    #   { name: 'CHILDREN', value: ((result / income) * 100).truncate(2), color: :magenta, fill: 'C' }
-    # ]
-    
-    # pie_chart = TTY::Pie.new(data: data, radius: 10)
-    
-    # print pie_chart
+
+  # if income minus all other deductions equals 20% or more advise of this option
   else
     puts "
     Saving more than 20% of your weekly income is great!
     You're exceeding the recommended amount. Keep up the good work!
     
     You're already crushing it, but let's have another go and see if we can save even more!".colorize(:light_green)
-    # income = ((result / income) * 100).truncate(2) >= 20
-    # rent = ((income / rent) * 100).truncate(2)
-    # groceries = ((income / groceries ) * 100).truncate(2)
-    # insurance = ((income / insurance) * 100).truncate(2)
-    # recreation = ((income / recreation) * 100).truncate(2)
-    # utilities = ((income / utilities) * 100).truncate(2)
-    # transport = ((income / transport) * 100).truncate(2)
-    # fitness = ((income / fitness) * 100).truncate(2)
-    # children = ((income / children) * 100).truncate(2)
-    
-    # data = [
-    #   { name: 'RENT', value: ((income / rent) * 100).truncate(2), color: :bright_blue, fill: 'R' },
-    #   { name: 'GROCERIES', value: ((income / groceries) * 100).truncate(2), color: :bright_green, fill: 'G' },
-    #   { name: 'INSURANCE', value: ((income / insurance) * 100).truncate(2), color: :bright_magenta, fill: 'I' },
-    #   { name: 'RECREATION', value: ((income / recreation) * 100).truncate(2), color: :bright_yellow, fill: 'R' },
-    #   { name: 'UTILITIES', value: ((income / utilities) * 100).truncate(2), color: :bright_red, fill: 'U' },
-    #   { name: 'TRANSPORT', value: ((income / transport) * 100).truncate(2), color: :green, fill: 'T' },
-    #   { name: 'FITNESS', value: ((income / fitness) * 100).truncate(2), color: :cyan, fill: 'F' },
-    #   { name: 'CHILDREN', value: ((income / children) * 100).truncate(2), color: :magenta, fill: 'C' }
-    # ]
-    
-    # pie_chart = TTY::Pie.new(data: data, radius: 10)
-    
-    # print pie_chart
   end
 end
 
+# will continue to loop until user choose to quit. quiting is allowed at the beginning of each round.
 quit = false
 until quit do
   puts font.write("Welcome to Budgt!").colorize(:light_magenta)
