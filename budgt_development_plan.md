@@ -8,6 +8,8 @@ Through the use of user input, .budgt will give the user a break down of where t
 
 This application will target people of all ages. It will help high school students learn about budgeting, it will help a grandmother on the pension to put money away for christmas presents and it will help busy parents stay on top of their finances while running a crazy household, just to name a few.
 
+---
+
 ## Features
 
 - ### User Input
@@ -34,6 +36,8 @@ This application will target people of all ages. It will help high school studen
 
     The application uses an Until loop that continues until the user chooses to quit. This allows the user to try again with different figures in order to better their budget.
 
+---
+
 ## User Interaction and Experience
 
 The user is prompted to enter data throughout their use of the application. The application takes the data and subtracts debtors from creditors to calculate the remaining value. Subject to this value, the user will be given one of four results to advise them on their finances.
@@ -42,8 +46,12 @@ The user is made aware of what kind of input the application is expecting as to 
 
 The user interaction with the available features vary depending on input. All users will have access to both the User Input feature as well as the Savings % feature. The user must use the User input feature to interact with the feature and all four of the available outcomes will advise the user on the dollar value and percentage of savings they are achieving. The one feature not available to everyone is the 50/20/30 rule information. This feature is only applicable to two out of the four of the available outcomes, as it is not necessarily a feature that all users need to partake in.
 
+---
+
 ## Control Flow Diagram
  ![ScreenCap](docs/BudgtFlowchart1.0.PNG)
+
+---
 
 ## Implementation Plan
 
@@ -102,6 +110,8 @@ The following is some screen shots of my Trello board progression throughout dev
 
 *board 13*
 ![Screencap](docs/TrelloBoard13.0.PNG)
+
+---
 
 # Test Application
 
