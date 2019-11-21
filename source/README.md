@@ -2,9 +2,8 @@
 
 ## Please do the following steps to run the application after downloading zip file
 
-1. unzip the zip folder
-2. Navigate to directory DallasHill_T1A3/source in Terminal (or Ubuntu)
-2. installed bundled gems
+1. Navigate to directory DallasHill_T1A3/source in Terminal (or Ubuntu)
+2. run chmod 775 ./setup.sh
 3. run ruby .budgt3.rb
 
 Once you have launched the application, you will see the title screen. There will be a short block of text asking if you would like to continue with "Y" or quit with "Q".
