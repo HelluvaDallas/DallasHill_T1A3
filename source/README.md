@@ -1,10 +1,13 @@
 # .budgt3.rb Help File
 
-## Please do the following steps to run the application after downloading zip file
+## Please do the following steps to run the application after unzipping file
 
 1. Navigate to directory DallasHill_T1A3/source in Terminal (or Ubuntu)
 2. run chmod 775 ./setup.sh
-3. run ruby .budgt3.rb
+
+system/hardware requirements are as follows
+Software - Ruby
+Hardware - any mac or PC, 2012 model or later
 
 Once you have launched the application, you will see the title screen. There will be a short block of text asking if you would like to continue with "Y" or quit with "Q".
 
@@ -17,3 +20,7 @@ The first prompt is asking for user input for income. This value is the most imp
 Once all questions have been answered, depending on input, the user will receive 1 of 4 messages advising you on your financial situation.
 
 The application then loops back to the title screen so the user can either "Q" to quit or "Y" to continue and try to save more money!
+
+# THANKS FOR COMING!
+
+![Screencap](../docs/me.jpg)
