@@ -2,8 +2,8 @@
 
 ## Please do the following steps to run the application after unzipping file
 
-1. Navigate to directory DallasHill_T1A3/source in Terminal (or Ubuntu)
-2. run chmod 775 ./setup.sh
+1. Navigate to directory <span style="color:yellow">DallasHill_T1A3/source</span> in Terminal (or Ubuntu)
+2. run <span style="color:yellow">chmod 775 ./setup.sh</span> in terminal or (Ubuntu)
 
 system/hardware requirements are as follows
 Software - Ruby
@@ -21,6 +21,6 @@ Once all questions have been answered, depending on input, the user will receive
 
 The application then loops back to the title screen so the user can either "Q" to quit or "Y" to continue and try to save more money!
 
-# THANKS FOR COMING!
+# <span style="color:green">THANKS FOR COMING!</span>
 
 ![Screencap](../docs/me.jpg)
